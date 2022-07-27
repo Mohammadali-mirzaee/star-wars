@@ -10,6 +10,8 @@ const Main = ({ search, filter }) => {
     const [selectmovie, setSelectedMovie] = useState(null)
 
 
+
+
     movies?.results ? movies.results.sort((movies1, movie2) => {
 
         if (filter === 'Year') {
@@ -36,7 +38,7 @@ const Main = ({ search, filter }) => {
         fetchList();
     }, []);
 
-    //console.log(movies.results)
+
 
     const selectedMovie = useCallback((sku) => {
         console.log("sku", sku)
@@ -56,21 +58,18 @@ const Main = ({ search, filter }) => {
     }
 
 
-
-
-
-
-
-
     return (
         <div id={styles.main}>
+
 
             <div className={styles.leftSide}>
                 <ul role="list">
                     {movies.results &&
                         movies.results.filter((movie) => movie.title.toLowerCase().includes(search)).map((movie) => (
-                            <li key={movie.token} onClick={() => selectedMovie(movie.episode_id)}>
-                                <div>
+                            <li key={movie.episode_id} onClick={() => selectedMovie(movie.episode_id)} className={selectmovie?.episode_id === movie.episode_id ? styles.active : undefined}
+                            >
+                                <div
+                                >
                                     <span>
                                         EPISODE
                                         {movie.episode_id}
@@ -89,21 +88,18 @@ const Main = ({ search, filter }) => {
             <div className={styles.rightside}>
                 {selectmovie && <img src={images[selectmovie.episode_id]} alt={selectmovie.title} />}
                 {selectmovie && (
+
                     <div>
-                        <div>
-                            <h1>
-                                {selectmovie.title}
-                            </h1>
-                            <p>
-                                {selectmovie.opening_crawl}
-                            </p>
-
-
-                        </div>
+                        <h1>
+                            {selectmovie.title}
+                        </h1>
+                        <p>
+                            {selectmovie.opening_crawl}
+                        </p>
                     </div>
                 ) || <p>No Movie Selected</p>}
             </div>
-        </div>
+        </div >
     )
 
 }

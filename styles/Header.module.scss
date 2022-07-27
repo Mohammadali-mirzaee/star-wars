@@ -1,23 +1,102 @@
 #header{
-height: 5rem;
+max-height: 96px;
+padding: 2rem;
 width: 100%;
-  
- 
-
-  >div{
 display: flex;
-justify-content: space-around;
-  align-items: center;
-  height: 5rem;
-  width: 100%;
-  input{
-    width: 90%;
-    height: 2rem;
-    border-radius: 0.3rem;
-    border: none;
-  }
-  input:focus {
-  outline: none;
+box-shadow: 0px 0px 20px rgba(black, 0.1);
+border-bottom: 1px solid #ddd;
+
+    button{
+        border: 1px solid #ddd;
+        padding: 0.5rem 1rem;
+        border-radius: 3rem;
+        cursor: pointer;
+        font-weight: 600;
+
+        &:hover{
+            border: 1px solid #ccc;
+        }
+    }
+    .active{
+        background:#f2f2f2  !important;
+
+    }
+
+.dropDown{
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(black, 0.1);
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+        padding: 0.75rem 1rem;
+
+        button{
+            border: 0;
+            padding: 0;
+            background: transparent;
+
+            svg{
+                position: unset;
+            }
+        }
+    }
+
+    h4{
+        margin: 0;
+    }
+
+    input{
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        background: transparent;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+    }
+}
+
+  > div{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:nth-child(1){
+        margin-right: 2rem;
+        width: 130px;
+    }
+
+    &:nth-child(2){
+        width: 100%;
+    }
+
+    svg{
+        height: 20px;
+        position: absolute;
+        left: 1rem;
     }
   }
-}
+
+  input{
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    padding: 0.5rem 3rem;
+    width: 100%;
+
+    &:focus{
+        outline: none;
+    }
+  }
+  }
